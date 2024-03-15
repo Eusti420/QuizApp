@@ -50,9 +50,10 @@ let questions = [
 ];
 
 let currentQuestion = 0;
+let questionCount = 1;
 
 function init() {
-    document.getElementById('question').innerHTML = questions.length;
+    document.getElementById('all-question').innerHTML = questions.length;
     showQuestion();
 }
 
@@ -64,4 +65,36 @@ function showQuestion() {
     document.getElementById('answer_2').innerHTML = question['answer_2'];
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
+}
+
+function answer(selection) {
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = selection.slice(-1); // letzter Character eines Strings wird ausgelesen
+
+    if (selectedQuestionNumber == question['right_answer']) {
+        console.log('Richtige Antwort!')
+        document.getElementById(selection).parentNode.classList.add('bg-success',);
+    } else {
+        console.log('falsche Antwort!')
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+    }
+    
+}
+
+function nextQuestion() {
+   currentQuestion++;
+   questionCount++;
+   renderNextQuestion(currentQuestion, questionCount);
+}
+
+function renderNextQuestion() {
+    let question = questions[currentQuestion];
+    
+    document.getElementById('current-question').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+
+    document.getElementById('question-count').innerHTML = questionCount;
 }

@@ -22,33 +22,33 @@
         <div class="card-body">
           <h5 class="card-title" id="current-question">Frage</h5>
 
-            <div class="card mb-2">
-                <div class="card-body" id="answer_1">
+            <div class="card quiz-answer-card mb-2">
+                <div class="card-body" id="answer_1" onclick="answer('answer_1')">
                 <p class="card-text">Antwort</p>
                 </div>
             </div>
 
-            <div class="card mb-2">
-                <div class="card-body" id="answer_2">
+            <div class="card quiz-answer-card mb-2">
+                <div class="card-body" id="answer_2" onclick="answer('answer_2')">
                 <p class="card-text">Antwort</p>
                 </div>
             </div>
 
-            <div class="card mb-2">
-                <div class="card-body" id="answer_3">
+            <div class="card quiz-answer-card mb-2">
+                <div class="card-body" id="answer_3" onclick="answer('answer_3')">
                 <p class="card-text">Antwort</p>
                 </div>
             </div>
 
-            <div class="card mb-2">
-                <div class="card-body" id="answer_4">
+            <div class="card quiz-answer-card mb-2">
+                <div class="card-body" id="answer_4" onclick="answer('answer_4')">
                 <p class="card-text">Antwort</p>
                 </div>
             </div>
 
             <div class="question-footer">
-                <div><b>1</b> von <b id="question">5</b> Fragen</div>
-                <div><button class="btn btn-primary" type="submit">Nächste Frage</button></div>
+                <div><b id="question-count">1</b> von <b id="all-question">5</b> Fragen</div>
+                <div><button  id="nextButton" onclick="nextQuestion()" class="btn btn-primary" type="submit">Nächste Frage</button></div>
             </div>
 
         </div>
