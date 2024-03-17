@@ -15,11 +15,12 @@
         <div class="container-fluid">
           <span class="navbar-brand mb-0 h1">QuizApp</span>
         </div>
-      </nav>
+      </nav>  
     <div class="container">
       <div class="card">
         <img src="img/quiz_background.jpg" class="card-img-top" alt="...">
         <div class="card-body">
+          <div id="quiz-container"> 
           <h5 class="card-title" id="current-question">Frage</h5>
 
             <div class="card quiz-answer-card mb-2">
@@ -50,7 +51,10 @@
                 <div><b id="question-count">1</b> von <b id="all-question">5</b> Fragen</div>
                 <div><button disabled id="next-button" onclick="nextQuestion()" class="btn btn-primary" type="submit">Nächste Frage</button></div>
             </div>
-
+          </div>
+        </div>
+        <div id="close-quiz" class="card d-none d-flex align-items-center grid gap-3 border border-0">Du hast das Quiz beendet!
+          <button onclick="restartQuiz()" class="btn btn-primary mb-2">Quiz neustarten</button>
         </div>
       </div>
     </div>    

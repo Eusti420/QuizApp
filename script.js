@@ -60,7 +60,8 @@ function init() {
 function showQuestion() {
 
     if(currentQuestion >= questions.length) {
-        
+        document.getElementById('quiz-container').classList.add('d-none');
+        document.getElementById('close-quiz').classList.remove('d-none');
     } else {
 
     let question = questions[currentQuestion];
@@ -104,3 +105,9 @@ function resetAnswerContainer() {
     document.getElementById('answer_4').parentNode.classList.remove('bg-success','bg-danger');
 }
 
+function restartQuiz() {
+    document.getElementById('quiz-container').classList.remove('d-none');
+    document.getElementById('close-quiz').classList.add('d-none');
+    currentQuestion = 0;
+    init();
+}
