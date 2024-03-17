@@ -71,13 +71,18 @@ function answer(selection) {
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1); // letzter Character eines Strings wird ausgelesen
 
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
+
     if (selectedQuestionNumber == question['right_answer']) {
         console.log('Richtige Antwort!')
         document.getElementById(selection).parentNode.classList.add('bg-success',);
     } else {
         console.log('falsche Antwort!')
         document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
     }
+
+    document.getElementById('next-button').disabled = false;
     
 }
 
