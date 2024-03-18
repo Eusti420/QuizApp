@@ -27,3 +27,7 @@ body {
 .bg-success, .bg-danger {
     color: white;
 }
+
+img {
+    width: 502px;
+}

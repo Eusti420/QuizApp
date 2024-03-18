@@ -50,6 +50,7 @@ let questions = [
 ];
 
 let currentQuestion = 0;
+let rightQuestions = 0;
 
 
 function init() {
@@ -62,10 +63,16 @@ function showQuestion() {
     if(currentQuestion >= questions.length) {
         document.getElementById('quiz-container').classList.add('d-none');
         document.getElementById('close-quiz').classList.remove('d-none');
-    } else {
+        document.getElementById('all-answers').innerHTML = questions.length;
+        document.getElementById('correct-answers').innerHTML = rightQuestions;
+    } else { // show question
 
+    let percent = (currentQuestion + 1) / questions.length;
+    percent = Math.round(percent * 100);
     let question = questions[currentQuestion];
 
+    document.getElementById('progress-bar').innerHTML = percent + "%";
+    document.getElementById('progress-bar').style.width = percent + "%";
     document.getElementById('question-count').innerHTML = currentQuestion + 1;
     document.getElementById('current-question').innerHTML = question['question'];
     document.getElementById('answer_1').innerHTML = question['answer_1'];
@@ -75,20 +82,21 @@ function showQuestion() {
     }
 }
 
+
 function answer(selection) {
     let question = questions[currentQuestion];
     let selectedQuestionNumber = selection.slice(-1); // letzter Character eines Strings wird ausgelesen
 
-    let idOfRightAnswer = `answer_${question['right_answer']}`;
+    let idOfRightAnswer = `answer_${question['right_answer']}`; // id der richtigen Anwort für das Jeweilige Objekt im Array wird bestimmt
 
     if (selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
     }
     document.getElementById('next-button').disabled = false;
-    selection
 }
 
 function nextQuestion() {
